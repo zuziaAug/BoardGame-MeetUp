@@ -11,6 +11,7 @@
     <string name="button_games_text">Check out your game collection!</string>
     <string name="button_sessions_text">Join game session!</string>
     <string name="button_map_text">See the map with nearby places to play!</string>
+    <string name="welcome_text">Hello, Zuzia!\n What would you like to do today?</string>
     <string name="deco">Deco</string>
     <string name="map">Map</string>
     <string name="search_place">Search for a place</string>
