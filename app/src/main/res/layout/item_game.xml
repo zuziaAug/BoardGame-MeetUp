@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayoutBackground"
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:clickable="true"
+    android:clipToPadding="true"
+    android:focusable="true">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_margin="0dp"
+        android:padding="0dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/gameBgColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/dirty_green" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/gameImageView"
+            android:layout_width="160dp"
+            android:layout_height="125dp"
+            android:layout_gravity="center|right"
+            android:layout_margin="15dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="center"
+            tools:src="@color/bright_green" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/gameNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center|left"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="Dune: Imperium" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/gameMaxPlayersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="Max players: 6" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/gameDesignerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="Designer: Paul Dennan" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

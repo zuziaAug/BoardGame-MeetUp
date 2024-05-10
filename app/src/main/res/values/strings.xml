@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BoardGame MeetUp</string>
+    <string name="app_bottomtabbar_home_title">Home</string>
+    <string name="app_bottomtabbar_games_title">Games</string>
+    <string name="app_bottomtabbar_sessions_title">Sessions</string>
+    <string name="app_bottomtabbar_map_title">Map</string>
+    <string name="title_home">Home</string>
+    <string name="title_games">Games</string>
+    <string name="title_sessions">Sessions</string>
+    <string name="title_map">Map</string>
+    <string name="button_games_text">Check out your game collection!</string>
+    <string name="button_sessions_text">Join game session!</string>
+    <string name="button_map_text">See the map with nearby places to play!</string>
+    <string name="deco">Deco</string>
+    <string name="map">Map</string>
+    <string name="search_place">Search for a place</string>
+</resources>
