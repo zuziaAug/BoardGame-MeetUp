@@ -15,4 +15,13 @@
     <string name="deco">Deco</string>
     <string name="map">Map</string>
     <string name="search_place">Search for a place</string>
+    <string name="button_add_session">Nothing interesting here? Create your own game session!</string>
+    <string name="button_create_session">Create session!</string>
+    <string name="button_new_game">Is something missing? Add new game to your collection!</string>
+    <string name="button_add_game">Add game!</string>
+    <string name="designer">Designer</string>
+    <string name="max_players">Max players</string>
+    <string name="place">Place</string>
+    <string name="game_name">Game name</string>
+    <string name="image_url">Image URL</string>
 </resources>

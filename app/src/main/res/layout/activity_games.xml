@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
-    tools:context=".ui.MapActivity"
+    tools:context=".ui.GamesActivity"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,10 +12,27 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gamesRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="640dp"
+        android:layout_height="530dp"
         android:layout_marginTop="25dp"
         app:layoutManager="LinearLayoutManager"
         tools:listitem="@layout/item_game" />
+
+    <Button
+        android:id="@+id/buttonNewGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gamesRecyclerView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="@color/dark_green"
+        android:text="@string/button_new_game"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <include
         android:id="@+id/navigation"
