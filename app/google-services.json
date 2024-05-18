@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "694668790276",
+    "project_id": "boardgamemeetup-422611",
+    "storage_bucket": "boardgamemeetup-422611.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694668790276:android:1338324205ca35d33e8351",
+        "android_client_info": {
+          "package_name": "dam_a52174.boardgamemeetup"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi9OXdO_KyNU6Aq2T3HiOBb_8-1yvSXwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

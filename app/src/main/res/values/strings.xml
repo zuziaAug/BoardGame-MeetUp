@@ -24,6 +24,9 @@
     <string name="place">Place</string>
     <string name="game_name">Game name</string>
     <string name="image_url">Image URL</string>
-    <string name="sign_in">Sign in</string>
+    <string name="login">Log in</string>
+    <string name="logout">Log out</string>
     <string name="register">Register</string>
+    <string name="login_here">Already registered? Log in here</string>
+    <string name="register_here">"Don't have an account? Register here"</string>
 </resources>
