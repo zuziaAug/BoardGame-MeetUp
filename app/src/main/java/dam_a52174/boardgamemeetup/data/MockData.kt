@@ -29,11 +29,11 @@ object MockData {
     )
 
     var players = listOf<Player>(
-        Player(1, "Alice Smith", "alice.smith@example.com", "password1"),
-        Player(2, "Bob Johnson", "bob.johnson@example.com", "password2"),
-        Player(3, "Charlie Brown", "charlie.brown@example.com", "password3"),
-        Player(4, "Dana White", "dana.white@example.com", "password4"),
-        Player(5, "Ethan Green", "ethan.green@example.com", "password5")
+        Player("1", "Alice Smith", "alice.smith@example.com"),
+        Player("2", "Bob Johnson", "bob.johnson@example.com"),
+        Player("3", "Charlie Brown", "charlie.brown@example.com"),
+        Player("4", "Dana White", "dana.white@example.com"),
+        Player("5", "Ethan Green", "ethan.green@example.com")
     )
 
     var sessions = listOf<BoardGameSession>(
