@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">BoardGame MeetUp</string>
+
+    //MENU AND NAVIGATION
     <string name="app_bottomtabbar_home_title">Home</string>
     <string name="app_bottomtabbar_games_title">Games</string>
     <string name="app_bottomtabbar_sessions_title">Sessions</string>
@@ -8,6 +10,8 @@
     <string name="title_games">Games</string>
     <string name="title_sessions">Sessions</string>
     <string name="title_map">Map</string>
+
+    //HOME PAGE
     <string name="button_games_text">Check out your game collection!</string>
     <string name="button_sessions_text">Join game session!</string>
     <string name="button_map_text">See the map with nearby places to play!</string>
@@ -15,6 +19,8 @@
     <string name="deco">Deco</string>
     <string name="map">Map</string>
     <string name="search_place">Search for a place</string>
+
+    //GAME AND SESSION
     <string name="button_add_session">Nothing interesting here? Create your own game session!</string>
     <string name="button_create_session">Create session!</string>
     <string name="button_new_game">Is something missing? Add new game to your collection!</string>
@@ -24,9 +30,19 @@
     <string name="place">Place</string>
     <string name="game_name">Game name</string>
     <string name="image_url">Image URL</string>
+
+    //LOGIN AND REGISTER
     <string name="login">Log in</string>
     <string name="logout">Log out</string>
     <string name="register">Register</string>
     <string name="login_here">Already registered? Log in here</string>
     <string name="register_here">"Don't have an account? Register here"</string>
+
+    //WELCOME PAGE
+    <string name="welcome">WELCOME TO</string>
+    <string name="guest">As a guest, you can:</string>
+    <string name="check_games">Check out available games</string>
+    <string name="check_map">Check out map with places to play</string>
+    <string name="discover">To discover more:</string>
+    <string name="logo">Logo</string>
 </resources>

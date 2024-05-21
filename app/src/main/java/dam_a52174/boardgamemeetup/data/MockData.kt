@@ -12,12 +12,12 @@ object MockData {
         BoardGame(2, "Splendor Duel", 2, "Bruno Cathala", "https://cf.geekdo-images.com/V1PyFDPNFY4bJFgreLPxmQ__imagepage/img/GnAJH3QrhGYdNvE_s5ZL5Lip3W8=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6929347.jpg"),
         BoardGame(3, "7 Wonders Duel", 2, "Bruno Cathala", "https://cf.geekdo-images.com/zdagMskTF7wJBPjX74XsRw__imagepage/img/HdJ4d4O1P89V4UIhZnL3zoYnjow=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2576399.jpg"),
         BoardGame(4, "Brass: Birmingham", 4, "Gavan Brown", "https://cf.geekdo-images.com/x3zxjr-Vw5iU4yDPg70Jgw__imagepage/img/-17KkOmxbTu2slJTabGrkO8ZW8s=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3490053.jpg"),
-        BoardGame(5, "Terraforming Mars", 5, "Jacob Fryxelius", "https://cf.geekdo-images.com/Vy-yZLxSS6ntOFjsDbho3g__imagepage/img/O3kmVQoV0KmoqotazMK9T--QxG8=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3718275.jpg"),
-        BoardGame(6, "Pandemic", 4, "Matt Leacock", "https://cf.geekdo-images.com/9jWKn7k1A3EXTdfbIOAy_w__imagepage/img/F6yAOZCItMTcF5F4Rlvk06Up73E=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1534149.jpg"),
-        BoardGame(7, "Catan", 4, "Klaus Teuber", "https://cf.geekdo-images.com/1VXThog8cSTOMx4yF9oElQ__imagepage/img/hGGcYxbpkrdbWa1uB9oF2l_kp3M=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2582929.jpg"),
-        BoardGame(8, "Wingspan", 5, "Elizabeth Hargrave", "https://cf.geekdo-images.com/sRLj12yHWhtJPSNp1Jb-1w__imagepage/img/0HD5akjBM41qzp6kPoHJ9TjoYoI=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4458123.jpg"),
-        BoardGame(9, "Azul", 4, "Michael Kiesling", "https://cf.geekdo-images.com/KOR6n4Q0UxTSDsPSKQeh1w__imagepage/img/HZKmzqT2E1TB3QtkBRpVIZcIt9M=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3718274.jpg"),
-        BoardGame(10, "Gloomhaven", 4, "Isaac Childres", "https://cf.geekdo-images.com/AC-mZrVdr5g4LCw-5_v57g__imagepage/img/Ri7t8VhGicqdNIZxH0o0Ok9v8hU=/fit-in/900x600/filters:no_upscale():strip_icc()/pic5963927.jpg")
+        BoardGame(5, "Terraforming Mars", 5, "Jacob Fryxelius", "https://cf.geekdo-images.com/wg9oOLcsKvDesSUdZQ4rxw__imagepage/img/FS1RE8Ue6nk1pNbPI3l-OSapQGc=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3536616.jpg"),
+        BoardGame(6, "Pandemic", 4, "Matt Leacock", "https://cf.geekdo-images.com/S3ybV1LAp-8SnHIXLLjVqA__imagepage/img/kIBu-2Ljb_ml5n-S8uIbE6ehGFc=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1534148.jpg"),
+        BoardGame(7, "Catan", 4, "Klaus Teuber", "https://cf.geekdo-images.com/W3Bsga_uLP9kO91gZ7H8yw__imagepage/img/M_3Vg1j2HlNgkv7PL2xl2BJE2bw=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2419375.jpg"),
+        BoardGame(8, "Wingspan", 5, "Elizabeth Hargrave", "https://cf.geekdo-images.com/yLZJCVLlIx4c7eJEWUNJ7w__imagepage/img/uIjeoKgHMcRtzRSR4MoUYl3nXxs=/fit-in/900x600/filters:no_upscale():strip_icc()/pic4458123.jpg"),
+        BoardGame(9, "Azul", 4, "Michael Kiesling", "https://cf.geekdo-images.com/aPSHJO0d0XOpQR5X-wJonw__imagepage/img/q4uWd2nXGeEkKDR8Cc3NhXG9PEU=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6973671.png"),
+        BoardGame(10, "Gloomhaven", 4, "Isaac Childres", "https://cf.geekdo-images.com/sZYp_3BTDGjh2unaZfZmuA__imagepage/img/pBaOL7vV402nn1I5dHsdSKsFHqA=/fit-in/900x600/filters:no_upscale():strip_icc()/pic2437871.jpg")
     )
 
     var places = listOf<Place>(
@@ -29,11 +29,11 @@ object MockData {
     )
 
     var players = listOf<Player>(
-        Player("1", "Alice Smith", "alice.smith@example.com"),
-        Player("2", "Bob Johnson", "bob.johnson@example.com"),
-        Player("3", "Charlie Brown", "charlie.brown@example.com"),
-        Player("4", "Dana White", "dana.white@example.com"),
-        Player("5", "Ethan Green", "ethan.green@example.com")
+        Player("cGJOLJxHMoOhQMslu0MMKMA3zez2", "Alice Smith", "alice.smith@example.com"),
+        Player("opLOefrnXOZfeKo0IZzxot1N7EG2", "Bob Johnson", "bob.johnson@example.com"),
+        Player("pdXuK7su8JM8P1kk10NRbh9YBpD5", "Charlie Brown", "charlie.brown@example.com"),
+        Player("okLOefrnXOZfeKo0IZzxot1N7EG1", "Dana White", "dana.white@example.com"),
+        Player("dGJOLJxHMoOhQMslu0MMKMA3zez7", "Ethan Green", "ethan.green@example.com")
     )
 
     var sessions = listOf<BoardGameSession>(
