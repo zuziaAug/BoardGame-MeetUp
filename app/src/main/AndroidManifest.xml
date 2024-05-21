@@ -40,13 +40,13 @@
             android:name=".ui.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.RegisterActivity"
+            android:name=".ui.auth.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.LoginActivity"
+            android:name=".ui.auth.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.GamesGuestActivity"
+            android:name=".ui.guest.GamesGuestActivity"
             android:exported="false" />
     </application>
 

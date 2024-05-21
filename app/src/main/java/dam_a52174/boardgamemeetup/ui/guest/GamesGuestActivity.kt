@@ -1,4 +1,4 @@
-package dam_a52174.boardgamemeetup.ui
+package dam_a52174.boardgamemeetup.ui.guest
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dam_a52174.boardgamemeetup.R
 import dam_a52174.boardgamemeetup.data.MockData
+import dam_a52174.boardgamemeetup.ui.GameAdapter
+import dam_a52174.boardgamemeetup.ui.MainActivity
+import dam_a52174.boardgamemeetup.ui.MapActivity
 
 class GamesGuestActivity : BottomNavGuestActivity() {
 

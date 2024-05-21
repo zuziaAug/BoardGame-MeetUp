@@ -1,4 +1,4 @@
-package dam_a52174.boardgamemeetup.auth
+package dam_a52174.boardgamemeetup.ui.auth
 
 import android.content.Intent
 import android.os.Bundle

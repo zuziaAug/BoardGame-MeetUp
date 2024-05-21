@@ -1,4 +1,4 @@
-package dam_a52174.boardgamemeetup.ui
+package dam_a52174.boardgamemeetup.ui.guest
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dam_a52174.boardgamemeetup.R
+import dam_a52174.boardgamemeetup.ui.MainActivity
+import dam_a52174.boardgamemeetup.ui.MapActivity
 
 abstract class BottomNavGuestActivity : AppCompatActivity() {
     lateinit var navigationView: BottomNavigationView
