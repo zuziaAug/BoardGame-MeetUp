@@ -4,7 +4,7 @@ import android.os.Bundle
 import dam_a52174.boardgamemeetup.R
 
 
-class MapActivity : BottomNavActivity() {
+class MapActivity : BottomNavGuestActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

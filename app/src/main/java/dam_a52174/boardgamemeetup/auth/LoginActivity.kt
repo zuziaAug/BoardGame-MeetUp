@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import dam_a52174.boardgamemeetup.R
 import dam_a52174.boardgamemeetup.ui.HomeActivity
+import dam_a52174.boardgamemeetup.ui.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -27,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
         passwordField = findViewById(R.id.passwordField)
         val loginButton = findViewById<Button>(R.id.loginButton)
         val textRegisterHere = findViewById<TextView>(R.id.textRegisterHere)
+        val textGoBack = findViewById<TextView>(R.id.textGoBack)
 
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
@@ -40,6 +42,12 @@ class LoginActivity : AppCompatActivity() {
         textRegisterHere.setOnClickListener {
             // Navigate to RegisterActivity when "Register here" text is clicked
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
+        // Set click listener for "Go back" text
+        textGoBack.setOnClickListener {
+            // Navigate to RegisterActivity when "Go back" text is clicked
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 

@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         // Set up click listeners
         buttonCheckGames.setOnClickListener {
             // Navigate to GamesActivity
-            startActivity(Intent(this, GamesActivity::class.java))
+            startActivity(Intent(this, GamesGuestActivity::class.java))
         }
 
         buttonCheckMap.setOnClickListener {

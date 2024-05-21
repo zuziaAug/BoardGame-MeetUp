@@ -12,8 +12,4 @@
         android:id="@+id/navigation_sessions"
         android:icon="@drawable/session"
         android:title="@string/app_bottomtabbar_sessions_title" />
-    <item
-        android:id="@+id/navigation_map"
-        android:icon="@drawable/map"
-        android:title="@string/app_bottomtabbar_map_title" />
 </menu>

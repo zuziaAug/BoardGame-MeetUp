@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_welcome"
+        android:icon="@drawable/welcome"
+        android:title="@string/app_bottomtabbar_welcome_title" />
+    <item
+        android:id="@+id/navigation_games_guest"
+        android:icon="@drawable/dice"
+        android:title="@string/app_bottomtabbar_games_title" />
+    <item
+        android:id="@+id/navigation_map"
+        android:icon="@drawable/map"
+        android:title="@string/app_bottomtabbar_map_title" />
+</menu>

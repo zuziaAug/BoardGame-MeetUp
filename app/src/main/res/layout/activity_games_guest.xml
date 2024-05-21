@@ -3,27 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
-    tools:context=".ui.MapActivity"
+    tools:context=".ui.GamesGuestActivity"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_bottomtabbar_map_title"
-        android:layout_centerInParent="true"
-        android:textSize="36sp" />
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gamesGuestRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="630dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/map"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_height="609dp"
+        android:layout_marginTop="25dp"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/item_game" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container_games"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
     <include
         android:id="@+id/navigation"

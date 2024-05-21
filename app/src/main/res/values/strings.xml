@@ -6,16 +6,18 @@
     <string name="app_bottomtabbar_games_title">Games</string>
     <string name="app_bottomtabbar_sessions_title">Sessions</string>
     <string name="app_bottomtabbar_map_title">Map</string>
+    <string name="app_bottomtabbar_welcome_title">Welcome</string>
     <string name="title_home">Home</string>
     <string name="title_games">Games</string>
     <string name="title_sessions">Sessions</string>
     <string name="title_map">Map</string>
+    <string name="title_welcome">Welcome</string>
 
     //HOME PAGE
     <string name="button_games_text">Check out your game collection!</string>
     <string name="button_sessions_text">Join game session!</string>
-    <string name="button_map_text">See the map with nearby places to play!</string>
-    <string name="welcome_text">Hello, Zuzia!\n What would you like to do today?</string>
+    <string name="button_welcome_text">Go back to the welcome page [LOG OUT]</string>
+    <string name="welcome_text">Hello!\n What would you like to do today?</string>
     <string name="deco">Deco</string>
     <string name="map">Map</string>
     <string name="search_place">Search for a place</string>
@@ -45,4 +47,6 @@
     <string name="check_map">Check out map with places to play</string>
     <string name="discover">To discover more:</string>
     <string name="logo">Logo</string>
+
+    <string name="back">Go back to welcome page</string>
 </resources>
