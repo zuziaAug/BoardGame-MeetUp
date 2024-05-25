@@ -18,7 +18,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,13 +40,22 @@
             android:name=".ui.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.auth.RegisterActivity"
+            android:name=".ui.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.auth.LoginActivity"
+            android:name=".ui.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.guest.GamesGuestActivity"
+            android:name=".ui.GamesGuestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AboutAppActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AccountSettingsActivity"
             android:exported="false" />
     </application>
 

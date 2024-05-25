@@ -47,6 +47,23 @@
     <string name="check_map">Check out map with places to play</string>
     <string name="discover">To discover more:</string>
     <string name="logo">Logo</string>
+    <string name="settings">Settings</string>
 
     <string name="back">Go back to welcome page</string>
+
+    //SETTINGS PAGE
+    <string name="portuguese">Portuguese</string>
+    <string name="english">English</string>
+    <string name="polish">Polish</string>
+    <string name="about_app_button">About app</string>
+    <string name="account_settings_button">Account settings</string>
+    <string name="language_list">Select your language:</string>
+
+    //ABOUT APP PAGE
+    <string name="dev">Developer name: Zuzanna Augustyniak</string>
+    <string name="back_settings">Go back to settings page</string>
+    <string name="photo">Photo</string>
+
+    //ACCOUNT SETTINGS PAGE
+    <string name="user">User: Name</string>
 </resources>

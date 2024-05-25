@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.WelcomeActivity">
 
     <TextView
         android:id="@+id/welcome_text"
@@ -106,4 +106,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/discover_text" />
+
+    <ImageButton
+        android:id="@+id/buttonSettings"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="367dp"
+        android:layout_marginTop="448dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="25dp"
+        android:contentDescription="@string/settings"
+        android:scaleType="fitCenter"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/setting"
+        tools:ignore="TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

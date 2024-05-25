@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dam_a52174.boardgamemeetup.R
 import dam_a52174.boardgamemeetup.data.MockData
+import dam_a52174.boardgamemeetup.ui.adapters.GameAdapter
+import dam_a52174.boardgamemeetup.ui.nav.BottomNavActivity
 
 class GamesActivity : BottomNavActivity() {
 

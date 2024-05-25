@@ -2,7 +2,7 @@ package dam_a52174.boardgamemeetup.ui
 
 import android.os.Bundle
 import dam_a52174.boardgamemeetup.R
-import dam_a52174.boardgamemeetup.ui.guest.BottomNavGuestActivity
+import dam_a52174.boardgamemeetup.ui.nav.BottomNavGuestActivity
 
 
 class MapActivity : BottomNavGuestActivity() {

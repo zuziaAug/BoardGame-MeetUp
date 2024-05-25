@@ -1,4 +1,4 @@
-package dam_a52174.boardgamemeetup.ui.guest
+package dam_a52174.boardgamemeetup.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dam_a52174.boardgamemeetup.R
 import dam_a52174.boardgamemeetup.data.MockData
-import dam_a52174.boardgamemeetup.ui.GameAdapter
-import dam_a52174.boardgamemeetup.ui.MainActivity
-import dam_a52174.boardgamemeetup.ui.MapActivity
+import dam_a52174.boardgamemeetup.ui.adapters.GameAdapter
+import dam_a52174.boardgamemeetup.ui.nav.BottomNavGuestActivity
 
 class GamesGuestActivity : BottomNavGuestActivity() {
 
@@ -30,7 +29,7 @@ class GamesGuestActivity : BottomNavGuestActivity() {
             when (item.itemId) {
                 R.id.navigation_welcome -> {
                     // Handle navigation to Main Activity
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, WelcomeActivity::class.java))
                     true
                 }
                 R.id.navigation_games_guest -> {

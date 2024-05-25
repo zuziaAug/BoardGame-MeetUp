@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="370dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAboutApp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonAboutApp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/about_app_button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAccountSettings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+
+    <Button
+        android:id="@+id/buttonAccountSettings"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/account_settings_button"
+        app:layout_constraintBottom_toTopOf="@+id/languageListTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAboutApp" />
+
+    <TextView
+        android:id="@+id/languageListTextView"
+        android:layout_width="143dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/bright_green"
+        android:gravity="center"
+        android:text="@string/language_list"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxPortuguese"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAccountSettings" />
+
+    <CheckBox
+        android:id="@+id/checkBoxEnglish"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginEnd="144dp"
+        android:text="@string/english"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxPolish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxPortuguese" />
+
+    <CheckBox
+        android:id="@+id/checkBoxPortuguese"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="144dp"
+        android:text="@string/portuguese"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxEnglish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/languageListTextView" />
+
+    <CheckBox
+        android:id="@+id/checkBoxPolish"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="58dp"
+        android:text="@string/polish"
+        app:layout_constraintBottom_toTopOf="@+id/textGoBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxEnglish" />
+
+    <TextView
+        android:id="@+id/textGoBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="219dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:minHeight="48dp"
+        android:text="@string/back"
+        android:textAlignment="center"
+        android:textColor="@color/dark_green"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxPolish" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

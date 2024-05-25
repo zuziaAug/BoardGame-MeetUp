@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import dam_a52174.boardgamemeetup.R
-import dam_a52174.boardgamemeetup.ui.auth.LoginActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -78,7 +77,7 @@ class HomeActivity : AppCompatActivity() {
 
         buttonWelcome.setOnClickListener {
             // Navigate to MainActivity (Welcome page)
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, WelcomeActivity::class.java))
         }
 
         buttonLogout.setOnClickListener{
