@@ -17,7 +17,6 @@ class SessionAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val sessionGameNameTextView = itemView.findViewById<AppCompatTextView>(R.id.sessionGameNameTextView)
         val sessionPlaceTextView = itemView.findViewById<AppCompatTextView>(R.id.sessionPlaceTextView)
-        val sessionPlacesLeftTextView = itemView.findViewById<AppCompatTextView>(R.id.sessionPlacesLeftTextView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,10 +27,8 @@ class SessionAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val session = pkSessionList[position]
-        holder.sessionGameNameTextView.text = session.game.name
-        holder.sessionPlaceTextView.text = "Place: " + session.place.name
-        holder.sessionPlacesLeftTextView.text = "Places left: " + (session.game.maxPlayers - session.players.size).toString()
-        //TO DO - places left
+        holder.sessionGameNameTextView.text = session.gameName
+        holder.sessionPlaceTextView.text = "Place: " + session.placeName
     }
 
     override fun getItemCount(): Int {

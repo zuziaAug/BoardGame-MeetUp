@@ -1,7 +1,5 @@
 package dam_a52174.boardgamemeetup.ui
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
@@ -12,11 +10,14 @@ import android.view.animation.AccelerateInterpolator
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import dam_a52174.boardgamemeetup.R
+import dam_a52174.boardgamemeetup.data.DatabaseData
 
 class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
+
+        initializeDatabase()
 
         // Animation + delay last for 3 seconds
         Handler(Looper.getMainLooper()).postDelayed({
@@ -25,8 +26,14 @@ class StartActivity : AppCompatActivity() {
 
         // after 3,2 seconds start MainActivity
         Handler(Looper.getMainLooper()).postDelayed({
-            startMainActivity()
+            startGamesActivity()
         }, 3200)
+    }
+
+    private fun initializeDatabase() {
+        // Initialize Firestore and add initial data
+        val intent = Intent(this, DatabaseData::class.java)
+        startActivity(intent)
     }
 
     private fun animation() {
@@ -54,8 +61,8 @@ class StartActivity : AppCompatActivity() {
         scaleAnimatorY.start()
     }
 
-    private fun startMainActivity() {
-        val intent = Intent(this, WelcomeActivity::class.java)
+    private fun startGamesActivity() {
+        val intent = Intent(this, GamesActivity::class.java)
         startActivity(intent)
         finish() // Close StartActivity
     }

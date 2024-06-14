@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:hint="@string/game_name"
+        android:importantForAutofill="no"
         android:inputType="text"
-        android:importantForAutofill="no" />
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/editTextMaxPlayers"
@@ -21,8 +22,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="@string/max_players"
+        android:importantForAutofill="no"
         android:inputType="number"
-        android:importantForAutofill="no" />
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/editTextDesigner"
@@ -30,8 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="@string/designer"
+        android:importantForAutofill="no"
         android:inputType="text"
-        android:importantForAutofill="no" />
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/editTextImageUrl"
@@ -39,8 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="@string/image_url"
+        android:importantForAutofill="no"
         android:inputType="textUri"
-        android:importantForAutofill="no" />
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/buttonAddGame"

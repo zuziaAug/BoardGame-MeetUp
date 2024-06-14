@@ -2,13 +2,15 @@ package dam_a52174.boardgamemeetup.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.firestore.FirebaseFirestore
 import dam_a52174.boardgamemeetup.R
-import dam_a52174.boardgamemeetup.data.MockData
+import dam_a52174.boardgamemeetup.data.BoardGameSession
 import dam_a52174.boardgamemeetup.ui.adapters.SessionAdapter
 import dam_a52174.boardgamemeetup.ui.nav.BottomNavActivity
 
@@ -17,6 +19,7 @@ class SessionsActivity : BottomNavActivity() {
     private lateinit var listView: RecyclerView
     private lateinit var buttonAddSession: Button
     private lateinit var bottomNavigationView: BottomNavigationView
+    private val db: FirebaseFirestore by lazy { FirebaseFirestore.getInstance() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,13 +48,32 @@ class SessionsActivity : BottomNavActivity() {
             }
         }
 
+        // Setup RecyclerView
         listView = findViewById(R.id.sessionsRecyclerView)
-        listView.adapter = SessionAdapter(pkSessionList = MockData.sessions, context = this)
+
+        // Fetch data from Firestore and set up the RecyclerView
+        fetchSessionsFromFirestore()
 
         buttonAddSession = findViewById(R.id.buttonAddSession)
         buttonAddSession.setOnClickListener {
             openFragment(NewSessionFragment())
         }
+    }
+
+    private fun fetchSessionsFromFirestore() {
+        db.collection("Sessions")
+            .get()
+            .addOnSuccessListener { documents ->
+                val sessionList = mutableListOf<BoardGameSession>()
+                for (document in documents) {
+                    val session = document.toObject(BoardGameSession::class.java)
+                    sessionList.add(session)
+                }
+                listView.adapter = SessionAdapter(pkSessionList = sessionList, context = this)
+            }
+            .addOnFailureListener { exception ->
+                Log.w("SessionsActivity", "Error getting documents: ", exception)
+            }
     }
 
     private fun openFragment(fragment: Fragment) {

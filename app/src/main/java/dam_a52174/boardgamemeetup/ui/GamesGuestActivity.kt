@@ -2,10 +2,12 @@ package dam_a52174.boardgamemeetup.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.firestore.FirebaseFirestore
 import dam_a52174.boardgamemeetup.R
-import dam_a52174.boardgamemeetup.data.MockData
+import dam_a52174.boardgamemeetup.data.BoardGame
 import dam_a52174.boardgamemeetup.ui.adapters.GameAdapter
 import dam_a52174.boardgamemeetup.ui.nav.BottomNavGuestActivity
 
@@ -13,6 +15,7 @@ class GamesGuestActivity : BottomNavGuestActivity() {
 
     private lateinit var listView: RecyclerView
     private lateinit var bottomNavigationView: BottomNavigationView
+    private val db: FirebaseFirestore by lazy { FirebaseFirestore.getInstance() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +23,9 @@ class GamesGuestActivity : BottomNavGuestActivity() {
 
         // Setup RecyclerView
         listView = findViewById(R.id.gamesGuestRecyclerView)
-        listView.adapter = GameAdapter(pkGameList = MockData.games, context = this)
+
+        // Fetch data from Firestore and set up the RecyclerView
+        fetchGamesFromFirestore()
 
         // Setup BottomNavigationView
         bottomNavigationView = findViewById(R.id.navigation)
@@ -44,6 +49,22 @@ class GamesGuestActivity : BottomNavGuestActivity() {
                 else -> false
             }
         }
+    }
+
+    private fun fetchGamesFromFirestore() {
+        db.collection("Games")
+            .get()
+            .addOnSuccessListener { documents ->
+                val gamesList = mutableListOf<BoardGame>()
+                for (document in documents) {
+                    val game = document.toObject(BoardGame::class.java)
+                    gamesList.add(game)
+                }
+                listView.adapter = GameAdapter(pkGameList = gamesList, context = this)
+            }
+            .addOnFailureListener { exception ->
+                Log.w("GamesGuestActivity", "Error getting documents: ", exception)
+            }
     }
 
     override val contentViewId: Int

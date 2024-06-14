@@ -63,19 +63,6 @@
             android:textStyle="bold"
             tools:text="Place: Defuse" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/sessionPlacesLeftTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="Places left: 1" />
-
     </com.google.android.material.card.MaterialCardView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
