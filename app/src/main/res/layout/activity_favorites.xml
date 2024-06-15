@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.GamesActivity">
+    tools:context=".ui.FavoritesActivity">
 
     <!-- Main content layout -->
     <RelativeLayout
@@ -23,28 +23,16 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/gamesRecyclerView"
+            android:id="@+id/favoritesRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/toolbar"
             android:padding="8dp"
             tools:listitem="@layout/item_game" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/buttonNewGame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="16dp"
-            android:src="@drawable/tab"
-            app:backgroundTint="@color/dark_green"
-            app:tint="@android:color/white"
-            android:contentDescription="@string/button_add_game" />
-
         <!-- Fragment container for dynamic fragments -->
         <FrameLayout
-            android:id="@+id/fragment_container_games"
+            android:id="@+id/fragment_container_favorites"
             android:layout_width="272dp"
             android:layout_height="405dp"
             android:visibility="gone" />

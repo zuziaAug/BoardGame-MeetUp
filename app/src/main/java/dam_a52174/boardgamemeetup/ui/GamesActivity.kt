@@ -18,8 +18,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import dam_a52174.boardgamemeetup.R
-import dam_a52174.boardgamemeetup.data.BoardGame
 import dam_a52174.boardgamemeetup.adapters.GameAdapter
+import dam_a52174.boardgamemeetup.data.BoardGame
 
 class GamesActivity : AppCompatActivity() {
 
@@ -85,6 +85,7 @@ class GamesActivity : AppCompatActivity() {
                 R.id.nav_map -> startActivity(Intent(this, MapActivity::class.java))
                 R.id.nav_about -> startActivity(Intent(this, AboutAppActivity::class.java))
                 R.id.nav_language -> startActivity(Intent(this, LanguageActivity::class.java))
+                R.id.nav_account_settings -> startActivity(Intent(this, AccountSettingsActivity::class.java))
             }
             true
         }
@@ -95,7 +96,7 @@ class GamesActivity : AppCompatActivity() {
         // Setup FloatingActionButton
         buttonNewGame.setOnClickListener {
             if (auth.currentUser != null) {
-                openFragment(NewGameFragment())
+                startActivity(Intent(this, NewGameActivity::class.java))
             } else {
                 Toast.makeText(this, "Please log in to use this feature", Toast.LENGTH_SHORT).show()
             }

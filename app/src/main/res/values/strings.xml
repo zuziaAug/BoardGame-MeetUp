@@ -14,7 +14,6 @@
     <string name="language_title">Language</string>
     <string name="acc_settings_title">Account settings</string>
 
-
     //HOME PAGE
     <string name="button_games_text">Check out your game collection!</string>
     <string name="button_sessions_text">Join game session!</string>
@@ -34,6 +33,7 @@
     <string name="place">Place</string>
     <string name="game_name">Game name</string>
     <string name="image_url">Image URL</string>
+    <string name="button_favorites">Heart</string>
 
     //LOGIN AND REGISTER
     <string name="login">Log in</string>
@@ -73,4 +73,6 @@
     //NAV
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="choose_game_prompt">Choose game from the list:</string>
+
 </resources>

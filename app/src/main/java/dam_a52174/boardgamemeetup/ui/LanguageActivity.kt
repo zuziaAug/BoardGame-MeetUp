@@ -23,7 +23,7 @@ class LanguageActivity : AppCompatActivity() {
         // Setup toolbar
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar?.title = "Settings"
+        supportActionBar?.title = "Language"
 
         // Setup drawer and navigation view
         drawerLayout = findViewById(R.id.drawer_layout)

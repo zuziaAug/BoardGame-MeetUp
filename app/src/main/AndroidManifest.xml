@@ -37,9 +37,6 @@
             android:name=".ui.SessionsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.HomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.RegisterActivity"
             android:exported="false" />
         <activity
@@ -55,7 +52,13 @@
             android:name=".ui.AccountSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.WelcomeActivity"
+            android:name=".ui.FavoritesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.NewGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.NewSessionActivity"
             android:exported="false" />
         <activity
             android:name=".data.DatabaseData"

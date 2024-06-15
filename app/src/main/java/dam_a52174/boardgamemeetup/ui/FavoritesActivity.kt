@@ -1,5 +1,151 @@
 package dam_a52174.boardgamemeetup.ui
 
-class FavoritesActivity {
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+import dam_a52174.boardgamemeetup.R
+import dam_a52174.boardgamemeetup.adapters.GameAdapter
+import dam_a52174.boardgamemeetup.data.BoardGame
 
+class FavoritesActivity : AppCompatActivity() {
+
+    private lateinit var listView: RecyclerView
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navView: NavigationView
+    private lateinit var userEmailTextView: TextView
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_favorites)
+
+        // Initialize Firebase Authentication
+        auth = FirebaseAuth.getInstance()
+        // Initialize Firebase Firestore
+        db = FirebaseFirestore.getInstance()
+
+        listView = findViewById(R.id.favoritesRecyclerView)
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.nav_view)
+
+        // Setup toolbar
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Favorites"
+
+        // Setup header view
+        val headerView: View = navView.getHeaderView(0)
+        userEmailTextView = headerView.findViewById(R.id.user_email)
+        updateHeader(auth.currentUser)
+
+        // Setup RecyclerView
+        listView.layoutManager = GridLayoutManager(this, 1)
+        fetchFavoriteGamesFromFirestore()
+
+        // Handle drawer toggle
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        // Handle navigation item clicks
+        navView.setNavigationItemSelectedListener { menuItem ->
+            menuItem.isChecked = true
+            drawerLayout.closeDrawers()
+            when (menuItem.itemId) {
+                R.id.nav_login -> startActivity(Intent(this, LoginActivity::class.java))
+                R.id.nav_logout -> {
+                    auth.signOut()
+                    drawerLayout.closeDrawer(navView)
+                    recreate()
+                }
+                R.id.nav_games -> startActivity(Intent(this, GamesActivity::class.java))
+                R.id.nav_favorites -> startActivity(Intent(this, FavoritesActivity::class.java))
+                R.id.nav_sessions -> startActivity(Intent(this, SessionsActivity::class.java))
+                R.id.nav_map -> startActivity(Intent(this, MapActivity::class.java))
+                R.id.nav_about -> startActivity(Intent(this, AboutAppActivity::class.java))
+                R.id.nav_language -> startActivity(Intent(this, LanguageActivity::class.java))
+                R.id.nav_account_settings -> startActivity(Intent(this, AccountSettingsActivity::class.java))
+            }
+            true
+        }
+
+        // Update drawer menu based on login status
+        updateDrawerMenu(auth.currentUser != null)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        updateDrawerMenu(auth.currentUser != null)
+    }
+
+    private fun updateHeader(user: FirebaseUser?) {
+        if (user != null) {
+            userEmailTextView.text = user.email
+            userEmailTextView.visibility = View.VISIBLE
+        } else {
+            userEmailTextView.visibility = View.GONE
+        }
+    }
+
+    private fun updateDrawerMenu(isLoggedIn: Boolean) {
+        val menuRes = if (isLoggedIn) R.menu.menu_logged_in else R.menu.menu_logged_out
+        navView.menu.clear()
+        navView.inflateMenu(menuRes)
+    }
+
+    private fun fetchFavoriteGamesFromFirestore() {
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            db.collection("users").document(currentUser.uid)
+                .collection("favorites")
+                .get()
+                .addOnSuccessListener { result ->
+                    val favoriteGameIds = result.map { document -> document.getLong("gameId")?.toInt() ?: -1 }
+                    if (favoriteGameIds.isNotEmpty()) {
+                        fetchBoardGames(favoriteGameIds)
+                    } else {
+                        Toast.makeText(this, "No favorite games found", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Error getting favorite games: $exception", Toast.LENGTH_SHORT).show()
+                }
+        } else {
+            Toast.makeText(this, "Please log in to see your favorite games", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun fetchBoardGames(favoriteGameIds: List<Int>) {
+        db.collection("BoardGames")
+            .whereIn("id", favoriteGameIds)
+            .get()
+            .addOnSuccessListener { result ->
+                val games = result.map { document -> document.toObject(BoardGame::class.java) }
+                setupRecyclerView(games)
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(this, "Error getting games: $exception", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun setupRecyclerView(games: List<BoardGame>) {
+        val adapter = GameAdapter(games, context = this)
+        listView.adapter = adapter
+    }
 }

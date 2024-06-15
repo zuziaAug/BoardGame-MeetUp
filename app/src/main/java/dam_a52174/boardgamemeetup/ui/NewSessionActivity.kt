@@ -2,51 +2,47 @@ package dam_a52174.boardgamemeetup.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
 import dam_a52174.boardgamemeetup.R
 import dam_a52174.boardgamemeetup.data.BoardGameSession
 
-class NewSessionFragment : Fragment() {
+class NewSessionActivity : AppCompatActivity() {
 
     private lateinit var db: FirebaseFirestore
     private lateinit var editTextGameName: EditText
     private lateinit var editTextPlace: EditText
-    private lateinit var buttonAddSession: Button
+    private lateinit var buttonCreateSession: Button
     private var nextId: Int = 1
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_session, container, false)
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_new_session)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+        // Initialize Firebase Firestore
         db = FirebaseFirestore.getInstance()
+        db.firestoreSettings = FirebaseFirestoreSettings.Builder()
+            .setPersistenceEnabled(true)
+            .build()
 
-        editTextGameName = view.findViewById(R.id.editTextGameName)
-        editTextPlace = view.findViewById(R.id.editTextPlace)
-        buttonAddSession = view.findViewById(R.id.buttonAddSession)
+        editTextGameName = findViewById(R.id.editTextGameName)
+        editTextPlace = findViewById(R.id.editTextPlace)
+        buttonCreateSession = findViewById(R.id.buttonCreateSession)
 
         // Get the next available ID for the new board game session
         getNextId()
 
-        buttonAddSession.setOnClickListener {
+        buttonCreateSession.setOnClickListener {
             val name = editTextGameName.text.toString()
             val place = editTextPlace.text.toString()
 
             if (name.isEmpty() || place.isEmpty()) {
-                Toast.makeText(requireContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@NewSessionActivity, "Please fill all the fields", Toast.LENGTH_SHORT).show()
             } else {
                 val newBoardGameSession = BoardGameSession(nextId, name, place)
                 addSessionToDatabase(newBoardGameSession)
@@ -62,11 +58,12 @@ class NewSessionFragment : Fragment() {
             .addOnSuccessListener { documents ->
                 if (!documents.isEmpty) {
                     val highestSession = documents.first().toObject(BoardGameSession::class.java)
-                    nextId = highestSession.id + 1
+                    nextId = highestSession?.id ?: 0 + 1
                 }
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(requireContext(), "Error fetching highest ID: $exception", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@NewSessionActivity, "Error fetching highest ID: $exception", Toast.LENGTH_SHORT).show()
+                Log.e("NewSessionActivity", "Error fetching highest ID", exception)
             }
     }
 
@@ -76,13 +73,14 @@ class NewSessionFragment : Fragment() {
             .document(session.id.toString()) // Set the document ID explicitly
             .set(session)
             .addOnSuccessListener {
-                Toast.makeText(requireContext(), "Session added successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@NewSessionActivity, "Session added successfully", Toast.LENGTH_SHORT).show()
                 // Navigate back to SessionsActivity
-                startActivity(Intent(requireContext(), SessionsActivity::class.java))
-                requireActivity().finish()
+                startActivity(Intent(this@NewSessionActivity, SessionsActivity::class.java))
+                finish()
             }
             .addOnFailureListener { e ->
-                Toast.makeText(requireContext(), "Error adding session: $e", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@NewSessionActivity, "Error adding session: ${e.message}", Toast.LENGTH_SHORT).show()
+                Log.e("NewSessionActivity", "Error adding session", e)
             }
     }
 }

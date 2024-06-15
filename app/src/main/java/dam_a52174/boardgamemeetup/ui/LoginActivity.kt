@@ -26,7 +26,6 @@ class LoginActivity : AppCompatActivity() {
         passwordField = findViewById(R.id.passwordField)
         val loginButton = findViewById<Button>(R.id.loginButton)
         val textRegisterHere = findViewById<TextView>(R.id.textRegisterHere)
-        val textGoBack = findViewById<TextView>(R.id.textGoBack)
 
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
@@ -40,12 +39,6 @@ class LoginActivity : AppCompatActivity() {
         textRegisterHere.setOnClickListener {
             // Navigate to RegisterActivity when "Register here" text is clicked
             startActivity(Intent(this, RegisterActivity::class.java))
-        }
-
-        // Set click listener for "Go back" text
-        textGoBack.setOnClickListener {
-            // Navigate to RegisterActivity when "Go back" text is clicked
-            startActivity(Intent(this, WelcomeActivity::class.java))
         }
     }
 
@@ -69,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Toast.makeText(this@LoginActivity, "Login successful", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                    startActivity(Intent(this@LoginActivity, GamesActivity::class.java))
                     finish()
                 } else {
                     // If sign in fails, display a message to the user.
