@@ -5,9 +5,13 @@
         android:icon="@drawable/logout"
         android:title="@string/logout_title" />
     <item
-        android:id="@+id/nav_your_games"
-        android:icon="@drawable/heart_clicked"
+        android:id="@+id/nav_games"
+        android:icon="@drawable/dice"
         android:title="@string/games_title" />
+    <item
+        android:id="@+id/nav_favorites"
+        android:icon="@drawable/heart_clicked"
+        android:title="@string/favorites_title" />
     <item
         android:id="@+id/nav_sessions"
         android:icon="@drawable/session"
@@ -16,4 +20,8 @@
         android:id="@+id/nav_map"
         android:icon="@drawable/map"
         android:title="@string/map_title" />
+    <item
+        android:id="@+id/nav_account_settings"
+        android:icon="@drawable/setting"
+        android:title="@string/acc_settings_title" />
 </menu>

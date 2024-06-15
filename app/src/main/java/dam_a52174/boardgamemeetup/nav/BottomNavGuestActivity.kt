@@ -9,7 +9,6 @@ import dam_a52174.boardgamemeetup.R
 import dam_a52174.boardgamemeetup.ui.GamesActivity
 import dam_a52174.boardgamemeetup.ui.WelcomeActivity
 import dam_a52174.boardgamemeetup.ui.MapActivity
-import dam_a52174.boardgamemeetup.ui.GamesGuestActivity
 
 abstract class BottomNavGuestActivity : AppCompatActivity() {
     lateinit var navigationView: BottomNavigationView

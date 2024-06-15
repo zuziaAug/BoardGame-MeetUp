@@ -10,11 +10,10 @@
     <string name="favorites_title">Favorites</string>
     <string name="login_title">Log in</string>
     <string name="logout_title">Log out</string>
-    <string name="title_home">Home</string>
-    <string name="title_games">Games</string>
-    <string name="title_sessions">Sessions</string>
-    <string name="title_map">Map</string>
-    <string name="title_welcome">Welcome</string>
+    <string name="about_title">About app</string>
+    <string name="language_title">Language</string>
+    <string name="acc_settings_title">Account settings</string>
+
 
     //HOME PAGE
     <string name="button_games_text">Check out your game collection!</string>

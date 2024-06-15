@@ -4,4 +4,12 @@
         android:id="@+id/nav_login"
         android:icon="@drawable/enter"
         android:title="@string/login_title" />
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/info"
+        android:title="@string/about_title" />
+    <item
+        android:id="@+id/nav_language"
+        android:icon="@drawable/setting"
+        android:title="@string/language_title" />
 </menu>

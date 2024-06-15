@@ -5,5 +5,9 @@
         android:id="@+id/nav_login"
         android:icon="@drawable/enter"
         android:title="@string/login_title" />
+    <item
+        android:id="@+id/nav_games"
+        android:icon="@drawable/dice"
+        android:title="@string/games_title" />
 </menu>
 

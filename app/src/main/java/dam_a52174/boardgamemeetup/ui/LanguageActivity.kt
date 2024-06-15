@@ -11,19 +11,19 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import dam_a52174.boardgamemeetup.R
 
-class AccountSettingsActivity : AppCompatActivity() {
+class LanguageActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_account_settings)
+        setContentView(R.layout.activity_language)
 
         // Setup toolbar
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar?.title = "Account settings"
+        supportActionBar?.title = "Settings"
 
         // Setup drawer and navigation view
         drawerLayout = findViewById(R.id.drawer_layout)

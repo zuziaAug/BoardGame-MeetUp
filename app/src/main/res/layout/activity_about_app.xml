@@ -1,77 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.AboutAppActivity">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="370dp"
-        android:layout_height="101dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:contentDescription="@string/logo"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/photoImageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Main content layout -->
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/photoImageView"
-        android:layout_width="166dp"
-        android:layout_height="178dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginBottom="10dp"
-        android:contentDescription="@string/photo"
-        app:layout_constraintBottom_toTopOf="@+id/devNameTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:srcCompat="@drawable/photo" />
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="@string/about_title"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:id="@+id/devNameTextView"
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="370dp"
+            android:layout_height="101dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/logo"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginTop="30dp" />
+
+        <!-- Photo -->
+        <ImageView
+            android:id="@+id/photoImageView"
+            android:layout_width="166dp"
+            android:layout_height="178dp"
+            android:layout_below="@+id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:contentDescription="@string/photo"
+            app:srcCompat="@drawable/photo" />
+
+        <!-- Developer Name -->
+        <TextView
+            android:id="@+id/devNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/photoImageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/dev"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    </RelativeLayout>
+
+    <!-- NavigationView for drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginBottom="150dp"
-        android:text="@string/dev"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintBottom_toTopOf="@+id/textGoBack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photoImageView" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_menu" />
 
-    <TextView
-        android:id="@+id/textGoBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="219dp"
-        android:layout_marginBottom="40dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:minHeight="48dp"
-        android:text="@string/back_settings"
-        android:textAlignment="center"
-        android:textColor="@color/dark_green"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/devNameTextView" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

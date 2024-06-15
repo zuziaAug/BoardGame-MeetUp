@@ -33,7 +33,7 @@ class WelcomeActivity : AppCompatActivity() {
         // Set up click listeners
         buttonCheckGames.setOnClickListener {
             // Navigate to GamesActivity
-            startActivity(Intent(this, GamesGuestActivity::class.java))
+            startActivity(Intent(this, GamesActivity::class.java))
         }
 
         buttonCheckMap.setOnClickListener {
@@ -48,7 +48,7 @@ class WelcomeActivity : AppCompatActivity() {
 
         buttonSettings.setOnClickListener{
             // Navigate to SettingsFragment
-            startActivity(Intent(this, SettingsActivity::class.java))
+            startActivity(Intent(this, LanguageActivity::class.java))
         }
     }
 }
