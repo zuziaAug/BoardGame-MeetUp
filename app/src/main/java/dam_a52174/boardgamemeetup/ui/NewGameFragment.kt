@@ -1,5 +1,6 @@
 package dam_a52174.boardgamemeetup.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -87,8 +88,9 @@ class NewGameFragment : Fragment() {
             .set(game)
             .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Game added successfully", Toast.LENGTH_SHORT).show()
-                // Navigate back to the list of games
-                requireActivity().supportFragmentManager.popBackStack()
+                // Navigate back to GamesActivity
+                startActivity(Intent(requireContext(), GamesActivity::class.java))
+                requireActivity().finish()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(requireContext(), "Error adding game: ${e.message}", Toast.LENGTH_SHORT).show()

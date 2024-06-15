@@ -1,50 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
-    tools:context=".ui.GamesActivity"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.GamesActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/gamesRecyclerView"
+    <!-- Main content layout -->
+    <RelativeLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="530dp"
-        android:layout_marginTop="25dp"
-        app:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/item_game" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonNewGame"
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        <!-- RecyclerView for games -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/gamesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:padding="8dp"
+            tools:listitem="@layout/item_game" />
+
+        <!-- Floating Action Button for new game -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonNewGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:src="@drawable/tab"
+            app:backgroundTint="@color/dirty_green"
+            app:tint="@android:color/white"
+            android:contentDescription="@string/button_add_game" />
+
+        <!-- Fragment container for dynamic fragments -->
+        <FrameLayout
+            android:id="@+id/fragment_container_games"
+            android:layout_width="272dp"
+            android:layout_height="405dp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <!-- NavigationView for drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gamesRecyclerView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="40dp"
-        android:backgroundTint="@color/dark_green"
-        android:text="@string/button_new_game"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <FrameLayout
-        android:id="@+id/fragment_container_games"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_menu" />
 
-    <include
-        android:id="@+id/navigation"
-        layout="@layout/bottomnavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
-
-</RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

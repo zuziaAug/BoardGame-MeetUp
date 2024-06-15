@@ -1,4 +1,4 @@
-package dam_a52174.boardgamemeetup.ui.adapters
+package dam_a52174.boardgamemeetup.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -17,6 +17,7 @@ class GameAdapter(
 ) : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val idTest = itemView.findViewById<AppCompatTextView>(R.id.idTest)
         val startersImageView = itemView.findViewById<AppCompatImageView>(R.id.gameImageView)
         val gameNameTextView = itemView.findViewById<AppCompatTextView>(R.id.gameNameTextView)
         val gameMaxPlayersTextView = itemView.findViewById<AppCompatTextView>(R.id.gameMaxPlayersTextView)
@@ -41,6 +42,7 @@ class GameAdapter(
         holder.gameNameTextView.text = game.name
         holder.gameMaxPlayersTextView.text = "Max players: " + game.maxPlayers.toString()
         holder.gameDesignerTextView.text = "Designer: " + game.designer
+        holder.idTest.text = "ID: " + game.id
     }
 
     override fun getItemCount(): Int {

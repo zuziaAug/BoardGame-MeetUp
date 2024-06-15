@@ -8,8 +8,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import dam_a52174.boardgamemeetup.R
 import dam_a52174.boardgamemeetup.data.BoardGame
-import dam_a52174.boardgamemeetup.ui.adapters.GameAdapter
-import dam_a52174.boardgamemeetup.ui.nav.BottomNavGuestActivity
+import dam_a52174.boardgamemeetup.adapters.GameAdapter
+import dam_a52174.boardgamemeetup.nav.BottomNavGuestActivity
 
 class GamesGuestActivity : BottomNavGuestActivity() {
 

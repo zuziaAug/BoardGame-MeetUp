@@ -1,4 +1,4 @@
-package dam_a52174.boardgamemeetup.ui.adapters
+package dam_a52174.boardgamemeetup.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

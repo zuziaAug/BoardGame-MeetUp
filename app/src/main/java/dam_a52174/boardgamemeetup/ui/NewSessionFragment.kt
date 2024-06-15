@@ -1,5 +1,6 @@
 package dam_a52174.boardgamemeetup.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -76,16 +77,12 @@ class NewSessionFragment : Fragment() {
             .set(session)
             .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Session added successfully", Toast.LENGTH_SHORT).show()
-                // Optionally, navigate back or clear fields after adding the session
-                clearFields()
+                // Navigate back to SessionsActivity
+                startActivity(Intent(requireContext(), SessionsActivity::class.java))
+                requireActivity().finish()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(requireContext(), "Error adding session: $e", Toast.LENGTH_SHORT).show()
             }
-    }
-
-    private fun clearFields() {
-        editTextGameName.text.clear()
-        editTextPlace.text.clear()
     }
 }

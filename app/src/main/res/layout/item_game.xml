@@ -74,6 +74,21 @@
             android:textStyle="bold"
             tools:text="Designer: Paul Dennan" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/idTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="ID: test" />
+
+
+
     </com.google.android.material.card.MaterialCardView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

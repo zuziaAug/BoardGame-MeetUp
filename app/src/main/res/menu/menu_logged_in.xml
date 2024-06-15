@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/logout"
+        android:title="@string/logout_title" />
+    <item
+        android:id="@+id/nav_your_games"
+        android:icon="@drawable/heart_clicked"
+        android:title="@string/games_title" />
+    <item
+        android:id="@+id/nav_sessions"
+        android:icon="@drawable/session"
+        android:title="@string/sessions_title" />
+    <item
+        android:id="@+id/nav_map"
+        android:icon="@drawable/map"
+        android:title="@string/map_title" />
+</menu>

@@ -11,8 +11,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import dam_a52174.boardgamemeetup.R
 import dam_a52174.boardgamemeetup.data.BoardGameSession
-import dam_a52174.boardgamemeetup.ui.adapters.SessionAdapter
-import dam_a52174.boardgamemeetup.ui.nav.BottomNavActivity
+import dam_a52174.boardgamemeetup.adapters.SessionAdapter
+import dam_a52174.boardgamemeetup.nav.BottomNavActivity
 
 class SessionsActivity : BottomNavActivity() {
 

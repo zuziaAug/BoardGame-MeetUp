@@ -2,11 +2,14 @@
     <string name="app_name">BoardGame MeetUp</string>
 
     //MENU AND NAVIGATION
-    <string name="app_bottomtabbar_home_title">Home</string>
-    <string name="app_bottomtabbar_games_title">Games</string>
-    <string name="app_bottomtabbar_sessions_title">Sessions</string>
-    <string name="app_bottomtabbar_map_title">Map</string>
-    <string name="app_bottomtabbar_welcome_title">Welcome</string>
+    <string name="home_title">Home</string>
+    <string name="games_title">Games</string>
+    <string name="sessions_title">Sessions</string>
+    <string name="map_title">Map</string>
+    <string name="welcome_title">Welcome</string>
+    <string name="favorites_title">Favorites</string>
+    <string name="login_title">Log in</string>
+    <string name="logout_title">Log out</string>
     <string name="title_home">Home</string>
     <string name="title_games">Games</string>
     <string name="title_sessions">Sessions</string>
@@ -25,7 +28,7 @@
     //GAME AND SESSION
     <string name="button_add_session">Nothing interesting here? Create your own game session!</string>
     <string name="button_create_session">Create session!</string>
-    <string name="button_new_game">Is something missing? Add new game to your collection!</string>
+    <string name="button_new_game">Is something missing? Add new game!</string>
     <string name="button_add_game">Add game!</string>
     <string name="designer">Designer</string>
     <string name="max_players">Max players</string>
@@ -66,4 +69,9 @@
 
     //ACCOUNT SETTINGS PAGE
     <string name="user">User: Name</string>
+    <string name="user_mail">user@gmail.com</string>
+
+    //NAV
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
 </resources>

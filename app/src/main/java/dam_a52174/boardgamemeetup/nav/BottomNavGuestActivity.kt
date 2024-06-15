@@ -1,4 +1,4 @@
-package dam_a52174.boardgamemeetup.ui.nav
+package dam_a52174.boardgamemeetup.nav
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dam_a52174.boardgamemeetup.R
 import dam_a52174.boardgamemeetup.ui.GamesActivity
-import dam_a52174.boardgamemeetup.ui.HomeActivity
+import dam_a52174.boardgamemeetup.ui.WelcomeActivity
 import dam_a52174.boardgamemeetup.ui.MapActivity
-import dam_a52174.boardgamemeetup.ui.SessionsActivity
+import dam_a52174.boardgamemeetup.ui.GamesGuestActivity
 
-abstract class BottomNavActivity : AppCompatActivity() {
+abstract class BottomNavGuestActivity : AppCompatActivity() {
     lateinit var navigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,16 +22,12 @@ abstract class BottomNavActivity : AppCompatActivity() {
         navigationView.itemIconTintList = null
         navigationView.setOnItemSelectedListener { item ->
             when(item.itemId) {
-                R.id.navigation_home -> {
-                    startActivity(Intent(this, HomeActivity::class.java))
+                R.id.navigation_welcome -> {
+                    startActivity(Intent(this, WelcomeActivity::class.java))
                     true
                 }
                 R.id.navigation_games -> {
                     startActivity(Intent(this, GamesActivity::class.java))
-                    true
-                }
-                R.id.navigation_sessions -> {
-                    startActivity(Intent(this, SessionsActivity::class.java))
                     true
                 }
                 R.id.navigation_map -> {
