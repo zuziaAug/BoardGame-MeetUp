@@ -73,6 +73,11 @@
     //NAV
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
+
     <string name="choose_game_prompt">Choose game from the list:</string>
+    <string name="session_detail_title">Session detail</string>
+    <string name="description">Description</string>
+    <string name="price">Price</string>
+    <string name="favorite">Favorite</string>
 
 </resources>

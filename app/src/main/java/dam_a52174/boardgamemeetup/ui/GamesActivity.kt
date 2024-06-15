@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -80,7 +79,6 @@ class GamesActivity : AppCompatActivity() {
                     recreate()
                 }
                 R.id.nav_games -> startActivity(Intent(this, GamesActivity::class.java))
-                R.id.nav_favorites -> startActivity(Intent(this, FavoritesActivity::class.java))
                 R.id.nav_sessions -> startActivity(Intent(this, SessionsActivity::class.java))
                 R.id.nav_map -> startActivity(Intent(this, MapActivity::class.java))
                 R.id.nav_about -> startActivity(Intent(this, AboutAppActivity::class.java))
@@ -137,21 +135,6 @@ class GamesActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w("GamesActivity", "Error getting documents: ", exception)
             }
-    }
-
-    private fun openFragment(fragment: Fragment) {
-        // Hide the existing views
-        listView.visibility = View.GONE
-        buttonNewGame.visibility = View.GONE
-
-        // Show the fragment container and load the fragment
-        val fragmentContainer = findViewById<View>(R.id.fragment_container_games)
-        fragmentContainer.visibility = View.VISIBLE
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container_games, fragment)
-            .addToBackStack(null)
-            .commit()
     }
 
     override fun onBackPressed() {

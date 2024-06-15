@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
             android:layout_marginStart="15dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="25dp"
             android:gravity="center|left"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="15dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="14sp"
@@ -67,25 +67,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="30dp"
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold"
             tools:text="Designer: Paul Dennan" />
-
-        <ImageButton
-            android:id="@+id/favoritesButton"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="start|bottom"
-            android:layout_marginStart="25dp"
-            android:layout_marginBottom="20dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/heart"
-            app:tint="@color/white"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/button_favorites" />
 
 
     </com.google.android.material.card.MaterialCardView>

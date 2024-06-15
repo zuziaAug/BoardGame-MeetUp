@@ -52,13 +52,13 @@
             android:name=".ui.AccountSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.FavoritesActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.NewGameActivity"
             android:exported="false" />
         <activity
             android:name=".ui.NewSessionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SessionDetailActivity"
             android:exported="false" />
         <activity
             android:name=".data.DatabaseData"

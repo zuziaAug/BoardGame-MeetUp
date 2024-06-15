@@ -64,7 +64,6 @@ class MapActivity : AppCompatActivity() {
                     recreate()
                 }
                 R.id.nav_games -> startActivity(Intent(this, GamesActivity::class.java))
-                R.id.nav_favorites -> startActivity(Intent(this, FavoritesActivity::class.java))
                 R.id.nav_sessions -> startActivity(Intent(this, SessionsActivity::class.java))
                 R.id.nav_map -> startActivity(Intent(this, MapActivity::class.java))
                 R.id.nav_about -> startActivity(Intent(this, AboutAppActivity::class.java))

@@ -2,23 +2,23 @@ package dam_a52174.boardgamemeetup.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import dam_a52174.boardgamemeetup.R
-import dam_a52174.boardgamemeetup.adapters.GameAdapter
-import dam_a52174.boardgamemeetup.data.BoardGame
+import dam_a52174.boardgamemeetup.adapters.SessionAdapter
+import dam_a52174.boardgamemeetup.data.BoardGameSession
 
-class FavoritesActivity : AppCompatActivity() {
+class SessionDetailActivity : AppCompatActivity(){
 
     private lateinit var listView: RecyclerView
     private lateinit var drawerLayout: DrawerLayout
@@ -29,30 +29,25 @@ class FavoritesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_favorites)
+        setContentView(R.layout.activity_session_detail)
 
         // Initialize Firebase Authentication
         auth = FirebaseAuth.getInstance()
         // Initialize Firebase Firestore
         db = FirebaseFirestore.getInstance()
 
-        listView = findViewById(R.id.favoritesRecyclerView)
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
 
         // Setup toolbar
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar?.title = "Favorites"
+        supportActionBar?.title = "Favorite sessions"
 
         // Setup header view
         val headerView: View = navView.getHeaderView(0)
         userEmailTextView = headerView.findViewById(R.id.user_email)
         updateHeader(auth.currentUser)
-
-        // Setup RecyclerView
-        listView.layoutManager = GridLayoutManager(this, 1)
-        fetchFavoriteGamesFromFirestore()
 
         // Handle drawer toggle
         val toggle = ActionBarDrawerToggle(
@@ -75,8 +70,7 @@ class FavoritesActivity : AppCompatActivity() {
                     recreate()
                 }
                 R.id.nav_games -> startActivity(Intent(this, GamesActivity::class.java))
-                R.id.nav_favorites -> startActivity(Intent(this, FavoritesActivity::class.java))
-                R.id.nav_sessions -> startActivity(Intent(this, SessionsActivity::class.java))
+                R.id.nav_sessions -> {} // Already in SessionsActivity
                 R.id.nav_map -> startActivity(Intent(this, MapActivity::class.java))
                 R.id.nav_about -> startActivity(Intent(this, AboutAppActivity::class.java))
                 R.id.nav_language -> startActivity(Intent(this, LanguageActivity::class.java))
@@ -87,6 +81,46 @@ class FavoritesActivity : AppCompatActivity() {
 
         // Update drawer menu based on login status
         updateDrawerMenu(auth.currentUser != null)
+
+        // Retrieve the game ID from the intent
+        val sessionId = intent.getIntExtra("SESSION_ID", -1)
+
+        if (sessionId != -1) {
+            fetchBoardGameSession(sessionId)
+        } else {
+            Toast.makeText(this, "Error loading session details", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun fetchBoardGameSession(id: Int) {
+        db.collection("BoardGameSessions").document(id.toString())
+            .get()
+            .addOnSuccessListener { document ->
+                val session = document.toObject(BoardGameSession::class.java)
+                if (session != null) {
+                    updateUI(session)
+                } else {
+                    Toast.makeText(this, "Session not found", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(this, "Error getting session details: $exception", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun updateUI(session: BoardGameSession) {
+
+        val detailGame = findViewById<TextView>(R.id.detailGame)
+        detailGame.text = "Game: ${session.gameName}"
+
+        val detailPlace = findViewById<TextView>(R.id.detailPlace)
+        detailPlace.text = "Place: ${session.placeName}"
+
+        val detailDescription = findViewById<TextView>(R.id.detailDescription)
+        detailDescription.text = session.description
+
+        val detailPrice = findViewById<TextView>(R.id.detailPrice)
+        detailPrice.text = "Price: ${session.price}"
     }
 
     override fun onStart() {
@@ -109,43 +143,27 @@ class FavoritesActivity : AppCompatActivity() {
         navView.inflateMenu(menuRes)
     }
 
-    private fun fetchFavoriteGamesFromFirestore() {
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            db.collection("users").document(currentUser.uid)
-                .collection("favorites")
-                .get()
-                .addOnSuccessListener { result ->
-                    val favoriteGameIds = result.map { document -> document.getLong("gameId")?.toInt() ?: -1 }
-                    if (favoriteGameIds.isNotEmpty()) {
-                        fetchBoardGames(favoriteGameIds)
-                    } else {
-                        Toast.makeText(this, "No favorite games found", Toast.LENGTH_SHORT).show()
-                    }
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(this, "Error getting favorite games: $exception", Toast.LENGTH_SHORT).show()
-                }
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(navView)) {
+            drawerLayout.closeDrawer(navView)
         } else {
-            Toast.makeText(this, "Please log in to see your favorite games", Toast.LENGTH_SHORT).show()
+            super.onBackPressed()
         }
     }
 
-    private fun fetchBoardGames(favoriteGameIds: List<Int>) {
-        db.collection("BoardGames")
-            .whereIn("id", favoriteGameIds)
+    private fun fetchSessionsFromFirestore() {
+        db.collection("Sessions")
             .get()
-            .addOnSuccessListener { result ->
-                val games = result.map { document -> document.toObject(BoardGame::class.java) }
-                setupRecyclerView(games)
+            .addOnSuccessListener { documents ->
+                val sessionList = mutableListOf<BoardGameSession>()
+                for (document in documents) {
+                    val session = document.toObject(BoardGameSession::class.java)
+                    sessionList.add(session)
+                }
+                listView.adapter = SessionAdapter(pkSessionList = sessionList, context = this)
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(this, "Error getting games: $exception", Toast.LENGTH_SHORT).show()
+                Log.w("SessionDetailActivity", "Error getting documents: ", exception)
             }
-    }
-
-    private fun setupRecyclerView(games: List<BoardGame>) {
-        val adapter = GameAdapter(games, context = this)
-        listView.adapter = adapter
     }
 }

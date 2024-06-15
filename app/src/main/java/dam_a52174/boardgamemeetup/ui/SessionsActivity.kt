@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -57,7 +56,6 @@ class SessionsActivity : AppCompatActivity() {
 
         // Setup RecyclerView
         listView.layoutManager = GridLayoutManager(this, 1)
-        fetchSessionsFromFirestore()
 
         // Handle drawer toggle
         val toggle = ActionBarDrawerToggle(
@@ -80,7 +78,6 @@ class SessionsActivity : AppCompatActivity() {
                     recreate()
                 }
                 R.id.nav_games -> startActivity(Intent(this, GamesActivity::class.java))
-                R.id.nav_favorites -> startActivity(Intent(this, FavoritesActivity::class.java))
                 R.id.nav_sessions -> {} // Already in SessionsActivity
                 R.id.nav_map -> startActivity(Intent(this, MapActivity::class.java))
                 R.id.nav_about -> startActivity(Intent(this, AboutAppActivity::class.java))
@@ -101,6 +98,9 @@ class SessionsActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please log in to use this feature", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // Fetch sessions from Firestore and populate RecyclerView
+        fetchSessionsFromFirestore()
     }
 
     override fun onStart() {
@@ -140,25 +140,24 @@ class SessionsActivity : AppCompatActivity() {
                     val session = document.toObject(BoardGameSession::class.java)
                     sessionList.add(session)
                 }
-                listView.adapter = SessionAdapter(pkSessionList = sessionList, context = this)
+                setupRecyclerView(sessionList)
             }
             .addOnFailureListener { exception ->
                 Log.w("SessionsActivity", "Error getting documents: ", exception)
             }
     }
 
-    private fun openFragment(fragment: Fragment) {
-        // Hide the existing views
-        listView.visibility = View.GONE
-        buttonAddSession.visibility = View.GONE
-
-        // Show the fragment container and load the fragment
-        val fragmentContainer = findViewById<View>(R.id.fragment_container_sessions)
-        fragmentContainer.visibility = View.VISIBLE
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container_sessions, fragment)
-            .addToBackStack(null)
-            .commit()
+    private fun setupRecyclerView(sessions: List<BoardGameSession>) {
+        val adapter = SessionAdapter(sessions, context = this)
+        listView.adapter = adapter
+        adapter.setOnClickListener(object : SessionAdapter.OnClickListener {
+            override fun onClick(position: Int, model: BoardGameSession) {
+                // Navigate to SessionDetailActivity with session ID
+                val intent = Intent(this@SessionsActivity, SessionDetailActivity::class.java).apply {
+                    putExtra("SESSION_ID", model.id)
+                }
+                startActivity(intent)
+            }
+        })
     }
 }

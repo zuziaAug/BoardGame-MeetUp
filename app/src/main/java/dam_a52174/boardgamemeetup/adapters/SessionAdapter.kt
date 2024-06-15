@@ -14,6 +14,8 @@ class SessionAdapter(
     private val context: Context
 ) : RecyclerView.Adapter<SessionAdapter.ViewHolder>() {
 
+    private var onClickListener: OnClickListener? = null
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val sessionGameNameTextView = itemView.findViewById<AppCompatTextView>(R.id.sessionGameNameTextView)
         val sessionPlaceTextView = itemView.findViewById<AppCompatTextView>(R.id.sessionPlaceTextView)
@@ -33,5 +35,13 @@ class SessionAdapter(
 
     override fun getItemCount(): Int {
         return pkSessionList.size
+    }
+
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
+    }
+
+    interface OnClickListener {
+        fun onClick(position: Int, model: BoardGameSession)
     }
 }
