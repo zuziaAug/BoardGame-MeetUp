@@ -1,13 +1,16 @@
 package dam_a52174.boardgamemeetup.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import dam_a52174.boardgamemeetup.R
 import dam_a52174.boardgamemeetup.data.BoardGameSession
+import dam_a52174.boardgamemeetup.ui.SessionDetailActivity
 
 class SessionAdapter(
     private val pkSessionList: List<BoardGameSession>,
@@ -19,6 +22,7 @@ class SessionAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val sessionGameNameTextView = itemView.findViewById<AppCompatTextView>(R.id.sessionGameNameTextView)
         val sessionPlaceTextView = itemView.findViewById<AppCompatTextView>(R.id.sessionPlaceTextView)
+        val buttonSessionDetail = itemView.findViewById<ImageButton>(R.id.buttonSessionDetail)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,6 +35,14 @@ class SessionAdapter(
         val session = pkSessionList[position]
         holder.sessionGameNameTextView.text = session.gameName
         holder.sessionPlaceTextView.text = "Place: " + session.placeName
+
+        holder.buttonSessionDetail.setOnClickListener {
+            // Navigate to SessionDetailActivity with session ID
+            val intent = Intent(context, SessionDetailActivity::class.java).apply {
+                putExtra("SESSION_ID", session.id)
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

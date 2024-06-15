@@ -26,7 +26,7 @@
             android:background="@color/dirty_green" />
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/sessionCheckButton"
+            android:id="@+id/buttonSessionDetail"
             android:layout_width="102dp"
             android:layout_height="48dp"
             android:layout_gravity="center|right"

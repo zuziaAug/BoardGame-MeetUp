@@ -79,5 +79,6 @@
     <string name="description">Description</string>
     <string name="price">Price</string>
     <string name="favorite">Favorite</string>
+    <string name="date">Date</string>
 
 </resources>

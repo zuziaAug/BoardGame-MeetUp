@@ -10,6 +10,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -20,6 +21,8 @@ import dam_a52174.boardgamemeetup.data.BoardGameSession
 
 class SessionDetailActivity : AppCompatActivity(){
 
+    private lateinit var buttonPayment: FloatingActionButton
+    private lateinit var buttonFavorite: FloatingActionButton
     private lateinit var listView: RecyclerView
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
@@ -38,11 +41,21 @@ class SessionDetailActivity : AppCompatActivity(){
 
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
+        buttonPayment = findViewById(R.id.fab_payment)
+        buttonFavorite = findViewById(R.id.fab_favorite)
+        
+        buttonPayment.setOnClickListener{
+            Toast.makeText(this, "Feature to be implemented", Toast.LENGTH_SHORT).show()
+        }
+
+        buttonFavorite.setOnClickListener{
+            Toast.makeText(this, "Feature to be implemented", Toast.LENGTH_SHORT).show()
+        }
 
         // Setup toolbar
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar?.title = "Favorite sessions"
+        supportActionBar?.title = "Session detail"
 
         // Setup header view
         val headerView: View = navView.getHeaderView(0)
@@ -70,7 +83,7 @@ class SessionDetailActivity : AppCompatActivity(){
                     recreate()
                 }
                 R.id.nav_games -> startActivity(Intent(this, GamesActivity::class.java))
-                R.id.nav_sessions -> {} // Already in SessionsActivity
+                R.id.nav_sessions -> startActivity(Intent(this, SessionsActivity::class.java))
                 R.id.nav_map -> startActivity(Intent(this, MapActivity::class.java))
                 R.id.nav_about -> startActivity(Intent(this, AboutAppActivity::class.java))
                 R.id.nav_language -> startActivity(Intent(this, LanguageActivity::class.java))
@@ -110,6 +123,9 @@ class SessionDetailActivity : AppCompatActivity(){
 
     private fun updateUI(session: BoardGameSession) {
 
+        val detailDate = findViewById<TextView>(R.id.detailDate)
+        detailDate.text = "Date: ${session.date}"
+
         val detailGame = findViewById<TextView>(R.id.detailGame)
         detailGame.text = "Game: ${session.gameName}"
 
@@ -120,7 +136,7 @@ class SessionDetailActivity : AppCompatActivity(){
         detailDescription.text = session.description
 
         val detailPrice = findViewById<TextView>(R.id.detailPrice)
-        detailPrice.text = "Price: ${session.price}"
+        detailPrice.text = "Price: ${session.price} euro"
     }
 
     override fun onStart() {

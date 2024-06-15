@@ -103,7 +103,10 @@ class DatabaseData : AppCompatActivity() {
         )
 
         val sessions = listOf(
-            BoardGameSession(1, games[0].name, places[0].name, "15/07/2024", 0, "Free play session for ${games[0].name} at ${places[0].name}. Everyone is welcome!"),
+            BoardGameSession(1, games[0].name, places[0].name, "15/07/2024", 0, "Prepare yourself " +
+                    "for an exhilarating evening of strategic conquests and political intrigue at our \"Diune: Imperium Strategy Night\" " +
+                    "board game session! Whether you're a seasoned diplomat or a novice tactician, this event promises " +
+                    "thrilling gameplay and friendly competition. Dive into the world of Arrakis!"),
             BoardGameSession(2, games[1].name, places[1].name, "25/07/2024", 10, "Play session for ${games[1].name} at ${places[1].name}. Don't forget to sign up!"),
             BoardGameSession(3, games[2].name, places[2].name, "23/09/2024", 5, "Exciting game session featuring ${games[2].name} at ${places[2].name}. Don't miss out!"),
             BoardGameSession(4, games[3].name, places[1].name, "15/08/2024", 25, "Tournament of ${games[3].name} at ${places[1].name}. Deadline for applying: 1/08!"),
