@@ -17,6 +17,9 @@ class NewSessionActivity : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private lateinit var editTextGameName: EditText
     private lateinit var editTextPlace: EditText
+    private lateinit var editTextDate: EditText
+    private lateinit var editTextPrice: EditText
+    private lateinit var editTextDescription: EditText
     private lateinit var buttonCreateSession: Button
     private var nextId: Int = 1
 
@@ -32,6 +35,9 @@ class NewSessionActivity : AppCompatActivity() {
 
         editTextGameName = findViewById(R.id.editTextGameName)
         editTextPlace = findViewById(R.id.editTextPlace)
+        editTextDate = findViewById(R.id.editDate)
+        editTextPrice = findViewById(R.id.editPrice)
+        editTextDescription = findViewById(R.id.editDescription)
         buttonCreateSession = findViewById(R.id.buttonCreateSession)
 
         // Get the next available ID for the new board game session
@@ -40,12 +46,16 @@ class NewSessionActivity : AppCompatActivity() {
         buttonCreateSession.setOnClickListener {
             val name = editTextGameName.text.toString()
             val place = editTextPlace.text.toString()
+            val date = editTextDate.text.toString()
+            val price = editTextPrice.text.toString().toIntOrNull() ?: 0
+            val description = editTextDescription.text.toString()
 
-            if (name.isEmpty() || place.isEmpty()) {
+            if (name.isEmpty() || place.isEmpty() || date.isEmpty() || price == 0 || description.isEmpty()) {
                 Toast.makeText(this@NewSessionActivity, "Please fill all the fields", Toast.LENGTH_SHORT).show()
             } else {
-                val newBoardGameSession = BoardGameSession(nextId, name, place)
+                val newBoardGameSession = BoardGameSession(nextId, name, place, date, price, description)
                 addSessionToDatabase(newBoardGameSession)
+                Toast.makeText(this@NewSessionActivity, "Feature to be implemented", Toast.LENGTH_SHORT).show()
             }
         }
     }

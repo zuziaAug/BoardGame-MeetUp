@@ -29,6 +29,39 @@
         android:inputType="text"
         tools:ignore="VisualLintTextFieldSize" />
 
+    <EditText
+        android:id="@+id/editDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/date_input"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="48dp"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/editPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/price"
+        android:minHeight="48dp"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        tools:ignore="VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/editDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/description"
+        android:minHeight="48dp"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        tools:ignore="VisualLintTextFieldSize" />
+
     <Button
         android:id="@+id/buttonCreateSession"
         android:layout_width="wrap_content"
@@ -40,12 +73,5 @@
         android:layout_gravity="center"
         android:backgroundTint="@color/dark_green"
         android:text="@string/button_create_session" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TODO: dodać pola z pozostałymi atrybutami sesji,
-ogarnąć, żeby wyświetlała się lista z nazwami gier i w ogóle, żeby
-to gówno zadziałało i dodawało do Firestore!!!!"/>
 
 </LinearLayout>

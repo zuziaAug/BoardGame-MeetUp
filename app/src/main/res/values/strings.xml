@@ -81,4 +81,6 @@
     <string name="favorite">Favorite</string>
     <string name="date">Date</string>
 
+    <string name="date_input">Date [MM/DD/YYYY]</string>
+
 </resources>
