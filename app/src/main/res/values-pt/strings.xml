@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">BoardGame MeetUp</string>
+
+    // MENU E NAVEGAÇÃO
+    <string name="home_title">Início</string>
+    <string name="games_title">Jogos</string>
+    <string name="sessions_title">Sessões</string>
+    <string name="map_title">Mapa</string>
+    <string name="welcome_title">Bem-vindo</string>
+    <string name="favorites_title">Favoritos</string>
+    <string name="login_title">Entrar</string>
+    <string name="logout_title">Sair</string>
+    <string name="about_title">Sobre o app</string>
+    <string name="language_title">Idioma</string>
+    <string name="acc_settings_title">Configurações da conta</string>
+
+    // PÁGINA INICIAL
+    <string name="button_games_text">Confira sua coleção de jogos!</string>
+    <string name="button_sessions_text">Participe de uma sessão de jogo!</string>
+    <string name="button_welcome_text">Voltar para a página de boas-vindas [SAIR]</string>
+    <string name="welcome_text">Olá!\n O que você gostaria de fazer hoje?</string>
+    <string name="deco">Decoração</string>
+    <string name="map">Mapa</string>
+    <string name="search_place">Pesquisar um lugar</string>
+
+    // JOGO E SESSÃO
+    <string name="button_add_session">Nada interessante aqui? Crie sua própria sessão de jogo!</string>
+    <string name="button_create_session">Criar sessão!</string>
+    <string name="button_new_game">Falta algo? Adicione um novo jogo!</string>
+    <string name="button_add_game">Adicionar jogo!</string>
+    <string name="designer">Designer</string>
+    <string name="max_players">Máximo de jogadores</string>
+    <string name="place">Lugar</string>
+    <string name="game_name">Nome do jogo</string>
+    <string name="image_url">URL da imagem</string>
+    <string name="button_favorites">Coração</string>
+
+    // LOGIN E REGISTRO
+    <string name="login">Entrar</string>
+    <string name="logout">Sair</string>
+    <string name="register">Registrar</string>
+    <string name="login_here">Já registrado? Entre aqui</string>
+    <string name="register_here">"Não tem uma conta? Registre-se aqui"</string>
+
+    // PÁGINA DE BOAS-VINDAS
+    <string name="welcome">BEM-VINDO AO</string>
+    <string name="guest">Como convidado, você pode:</string>
+    <string name="check_games">Confira os jogos disponíveis</string>
+    <string name="check_map">Confira o mapa com lugares para jogar</string>
+    <string name="discover">Para descobrir mais:</string>
+    <string name="logo">Logotipo</string>
+    <string name="settings">Configurações</string>
+
+    <string name="back">Voltar para a página de boas-vindas</string>
+
+    // PÁGINA DE CONFIGURAÇÕES
+    <string name="portuguese">Português</string>
+    <string name="english">Inglês</string>
+    <string name="polish">Polonês</string>
+    <string name="about_app_button">Sobre o app</string>
+    <string name="account_settings_button">Configurações da conta</string>
+    <string name="language_list">Selecione seu idioma:</string>
+
+    // PÁGINA SOBRE O APP
+    <string name="dev">Nome do desenvolvedor: Zuzanna Augustyniak</string>
+    <string name="back_settings">Voltar para a página de configurações</string>
+    <string name="photo">Foto</string>
+
+    // PÁGINA DE CONFIGURAÇÕES DA CONTA
+    <string name="user">Usuário: Nome</string>
+    <string name="user_mail">user@gmail.com</string>
+
+    // NAVEGAÇÃO
+    <string name="navigation_drawer_open">Abrir gaveta de navegação</string>
+    <string name="navigation_drawer_close">Fechar gaveta de navegação</string>
+
+    <string name="choose_game_prompt">Escolha um jogo da lista:</string>
+    <string name="session_detail_title">Detalhe da sessão</string>
+    <string name="description">Descrição</string>
+    <string name="price">Preço</string>
+    <string name="favorite">Favorito</string>
+    <string name="date">Data</string>
+
+    <string name="date_input">Data [MM/DD/YYYY]</string>
+
+</resources>

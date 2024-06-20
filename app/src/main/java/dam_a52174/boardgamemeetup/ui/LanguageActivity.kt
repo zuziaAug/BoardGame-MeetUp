@@ -1,8 +1,10 @@
 package dam_a52174.boardgamemeetup.ui
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.CheckBox
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -10,11 +12,15 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import dam_a52174.boardgamemeetup.R
+import java.util.Locale
 
 class LanguageActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
+    private lateinit var checkBoxEnglish: CheckBox
+    private lateinit var checkBoxPortuguese: CheckBox
+    private lateinit var checkBoxPolish: CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +58,38 @@ class LanguageActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+        // Setup checkboxes
+        checkBoxEnglish = findViewById(R.id.checkBoxEnglish)
+        checkBoxPortuguese = findViewById(R.id.checkBoxPortuguese)
+        checkBoxPolish = findViewById(R.id.checkBoxPolish)
+
+        checkBoxEnglish.setOnClickListener {
+            updateLocale("en")
+            checkBoxPortuguese.isChecked = false
+            checkBoxPolish.isChecked = false
+        }
+
+        checkBoxPortuguese.setOnClickListener {
+            updateLocale("pt")
+            checkBoxEnglish.isChecked = false
+            checkBoxPolish.isChecked = false
+        }
+
+        checkBoxPolish.setOnClickListener {
+            updateLocale("pl")
+            checkBoxEnglish.isChecked = false
+            checkBoxPortuguese.isChecked = false
+        }
+    }
+
+    private fun updateLocale(languageCode: String) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
+        recreate() // Restart activity to apply new locale
     }
 
     // Handle navigation drawer icon click to open/close the drawer
