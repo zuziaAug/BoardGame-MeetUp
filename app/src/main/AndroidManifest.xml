@@ -63,6 +63,9 @@
         <activity
             android:name=".data.DatabaseData"
             android:exported="false" />
+        <activity
+            android:name=".drawer.DrawerActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -52,6 +52,7 @@ class NewGameActivity : AppCompatActivity() {
             } else {
                 val newBoardGame = BoardGame(nextId, name, maxPlayers, designer, imageUrl)
                 addGameToDatabase(newBoardGame)
+                startActivity(Intent(this, GamesActivity::class.java))
             }
         }
     }

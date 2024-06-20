@@ -61,7 +61,7 @@ class AccountSettingsActivity : AppCompatActivity() {
                 R.id.nav_logout -> {
                     auth.signOut()
                     drawerLayout.closeDrawer(navView)
-                    recreate()
+                    startActivity(Intent(this, GamesActivity::class.java))
                 }
                 R.id.nav_games -> startActivity(Intent(this, GamesActivity::class.java))
                 R.id.nav_sessions -> {} // Already in SessionsActivity

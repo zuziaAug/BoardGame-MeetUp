@@ -34,9 +34,7 @@ class SessionsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sessions)
 
-        // Initialize Firebase Authentication
         auth = FirebaseAuth.getInstance()
-        // Initialize Firebase Firestore
         db = FirebaseFirestore.getInstance()
 
         listView = findViewById(R.id.sessionsRecyclerView)
@@ -44,20 +42,16 @@ class SessionsActivity : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
 
-        // Setup toolbar
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.title = "Sessions"
 
-        // Setup header view
         val headerView: View = navView.getHeaderView(0)
         userEmailTextView = headerView.findViewById(R.id.user_email)
         updateHeader(auth.currentUser)
 
-        // Setup RecyclerView
         listView.layoutManager = GridLayoutManager(this, 1)
 
-        // Handle drawer toggle
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.navigation_drawer_open,
@@ -66,7 +60,6 @@ class SessionsActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        // Handle navigation item clicks
         navView.setNavigationItemSelectedListener { menuItem ->
             menuItem.isChecked = true
             drawerLayout.closeDrawers()
@@ -75,7 +68,7 @@ class SessionsActivity : AppCompatActivity() {
                 R.id.nav_logout -> {
                     auth.signOut()
                     drawerLayout.closeDrawer(navView)
-                    recreate()
+                    startActivity(Intent(this, GamesActivity::class.java))
                 }
                 R.id.nav_games -> startActivity(Intent(this, GamesActivity::class.java))
                 R.id.nav_sessions -> {} // Already in SessionsActivity
@@ -87,10 +80,8 @@ class SessionsActivity : AppCompatActivity() {
             true
         }
 
-        // Update drawer menu based on login status
         updateDrawerMenu(auth.currentUser != null)
 
-        // Setup FloatingActionButton
         buttonAddSession.setOnClickListener {
             if (auth.currentUser != null) {
                 startActivity(Intent(this, NewSessionActivity::class.java))
@@ -98,14 +89,17 @@ class SessionsActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please log in to use this feature", Toast.LENGTH_SHORT).show()
             }
         }
-
-        // Fetch sessions from Firestore and populate RecyclerView
-        fetchSessionsFromFirestore()
     }
 
     override fun onStart() {
         super.onStart()
         updateDrawerMenu(auth.currentUser != null)
+        fetchSessionsFromFirestore()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchSessionsFromFirestore()
     }
 
     private fun updateHeader(user: FirebaseUser?) {
@@ -123,16 +117,8 @@ class SessionsActivity : AppCompatActivity() {
         navView.inflateMenu(menuRes)
     }
 
-    override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(navView)) {
-            drawerLayout.closeDrawer(navView)
-        } else {
-            super.onBackPressed()
-        }
-    }
-
     private fun fetchSessionsFromFirestore() {
-        db.collection("Sessions")
+        db.collection("BoardGameSessions")
             .get()
             .addOnSuccessListener { documents ->
                 val sessionList = mutableListOf<BoardGameSession>()
@@ -152,12 +138,19 @@ class SessionsActivity : AppCompatActivity() {
         listView.adapter = adapter
         adapter.setOnClickListener(object : SessionAdapter.OnClickListener {
             override fun onClick(position: Int, model: BoardGameSession) {
-                // Navigate to SessionDetailActivity with session ID
                 val intent = Intent(this@SessionsActivity, SessionDetailActivity::class.java).apply {
                     putExtra("SESSION_ID", model.id)
                 }
                 startActivity(intent)
             }
         })
+    }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(navView)) {
+            drawerLayout.closeDrawer(navView)
+        } else {
+            super.onBackPressed()
+        }
     }
 }
